@@ -15,10 +15,15 @@ export default defineNuxtConfig({
 		},
 		pageTransition: { name: 'page', mode: 'out-in' }
 	},
+	build: { transpile: ['@googlemaps/js-api-loader'] },
+	runtimeConfig: {
+		public: { GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY }
+	},
 	modules: [
 		'@nuxtjs/tailwindcss',
 		[
 			'@pinia/nuxt',
+			'@nuxtjs/axios',
 			{
 				autoImports: ['defineStore']
 			}
@@ -26,5 +31,6 @@ export default defineNuxtConfig({
 	],
 	typescript: {
 		typeCheck: true
-	}
+	},
+	axios: {}
 } as NuxtConfig)

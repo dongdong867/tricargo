@@ -12,8 +12,11 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@fawmi/vue-google-maps": "^0.9.79",
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@nuxt/types": "^2.15.8",
+    "@nuxtjs/axios": "^5.13.6",
     "@pinia/nuxt": "^0.4.6",
+    "@types/google.maps": "^3.51.0",
     "pinia": "^2.0.27",
     "vue-tsc": "^1.0.13"
   }
