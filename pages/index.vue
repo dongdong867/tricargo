@@ -13,7 +13,6 @@
 <script setup>
 import { Loader } from '@googlemaps/js-api-loader'
 import axios from 'axios'
-import { twd97_to_latlng } from '~/utils/twd97-to-latlng'
 
 const config = useRuntimeConfig().public
 
@@ -45,9 +44,8 @@ const initMap = () => {
 
 		datas = datas.data.data.park
 		for (const park in datas) {
-			const locate = twd97_to_latlng(datas[park].tw97x, datas[park].tw97y)
 			let marker = new google.maps.Marker({
-				position: locate,
+				position: twd97_to_latlng(datas[park].tw97x, datas[park].tw97y),
 				map: map
 			})
 		}
