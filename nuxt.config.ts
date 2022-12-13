@@ -2,6 +2,9 @@ import { NuxtConfig } from 'nuxt/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	router: {
+		base: 'tricargo'
+	},
 	app: {
 		head: {
 			meta: [
