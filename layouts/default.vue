@@ -6,3 +6,11 @@
 		<Navigationbar />
 	</div>
 </template>
+
+<script setup>
+import { useParkinglotsStore } from '~~/stores/parkinglots'
+
+const parkinglots = useParkinglotsStore()
+
+onBeforeMount(() => parkinglots.fetchParkinglotInfo())
+</script>
