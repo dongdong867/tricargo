@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Parkinglot } from '~~/utils/parkinglot'
+import { Parkinglot } from '../utils/Parkinglot'
 
 interface ParkinglotRawData {
 	id: string

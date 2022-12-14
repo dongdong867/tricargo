@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { useParkinglotsStore } from '~~/stores/parkinglots'
+import { useParkinglotsStore } from '~~/src/stores/parkinglots'
 
 const parkinglots = useParkinglotsStore()
 

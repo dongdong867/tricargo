@@ -12,7 +12,7 @@
 
 <script setup>
 import { Loader } from '@googlemaps/js-api-loader'
-import { useParkinglotsStore } from '~/stores/parkinglots'
+import { useParkinglotsStore } from '../stores/parkinglots'
 
 const config = useRuntimeConfig().public
 

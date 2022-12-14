@@ -38,5 +38,6 @@ export default defineNuxtConfig({
 	axios: {},
 	nitro: {
 		preset: 'firebase'
-	}
+	},
+	srcDir: 'src/'
 } as NuxtConfig)
