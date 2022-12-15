@@ -1,9 +1,9 @@
 <template>
-	<div class="max-w-lg h-full mx-auto flex flex-col">
-		<div class="grow">
+	<div class="max-w-lg h-[100vh] mx-auto">
+		<div class="grow h-[92vh]">
 			<NuxtPage />
 		</div>
-		<Navigationbar />
+		<Navigationbar class="h-[8vh]" />
 	</div>
 </template>
 
@@ -12,5 +12,7 @@ import { useParkinglotsStore } from '~~/src/stores/parkinglots'
 
 const parkinglots = useParkinglotsStore()
 
-onBeforeMount(() => parkinglots.fetchParkinglotInfo())
+onBeforeMount(() => {
+	parkinglots.fetchParkinglotInfo()
+})
 </script>
