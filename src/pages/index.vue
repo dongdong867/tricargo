@@ -16,11 +16,12 @@
 <script setup>
 import { initMap } from '~/utils/googlemap'
 import { useParkinglotsStore } from '../stores/parkinglots'
+import { Parkinglot } from '../utils/Parkinglot'
 
 const park = ref(false)
 const calculate = ref(false)
 const parkinglotsStore = useParkinglotsStore()
-let selectedParkinglot = { Parkinglot }
+let selectedParkinglot = new Parkinglot()
 
 onMounted(() => {
 	initMap(map, markerClicked)
