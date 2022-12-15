@@ -11,20 +11,7 @@ interface ParkinglotRawData {
 	tw97y: string
 	tel: string
 	serviceTime: string
-	FareInfo: {
-		WorkingDay: [
-			{
-				Period: string
-				Fare: string
-			}
-		]
-		Holiday: [
-			{
-				Period: string
-				Fare: string
-			}
-		]
-	}
+	payex: string
 }
 
 export const useParkinglotsStore = defineStore('parkingLot', {
@@ -38,7 +25,7 @@ export const useParkinglotsStore = defineStore('parkingLot', {
 		async fetchParkinglotInfo() {
 			await $fetch('/api/parkinglotInfo').then((res: any) => {
 				let parkinglotArray: Array<Parkinglot> = []
-				for (let parkinglot in res.data) {
+				for (const parkinglot in res.data) {
 					const data: ParkinglotRawData = {
 						id: res.data[parkinglot].id,
 						area: res.data[parkinglot].area,
@@ -49,10 +36,7 @@ export const useParkinglotsStore = defineStore('parkingLot', {
 						tw97y: res.data[parkinglot].tw97y,
 						tel: res.data[parkinglot].tel,
 						serviceTime: res.data[parkinglot].serviceTime,
-						FareInfo: {
-							WorkingDay: res.data[parkinglot].FareInfo.WorkingDay,
-							Holiday: res.data[parkinglot].FareInfo.Holiday
-						}
+						payex: res.data[parkinglot].payex
 					}
 					parkinglotArray.push(new Parkinglot(data))
 				}

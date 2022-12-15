@@ -8,20 +8,7 @@ interface ParkinglotRawData {
 	tw97y: string
 	tel: string
 	serviceTime: string
-	FareInfo: {
-		WorkingDay: [
-			{
-				Period: string
-				Fare: string
-			}
-		]
-		Holiday: [
-			{
-				Period: string
-				Fare: string
-			}
-		]
-	}
+	payex: string
 }
 
 export class Parkinglot {
@@ -35,10 +22,7 @@ export class Parkinglot {
 		tw97y: '',
 		tel: '',
 		serviceTime: '',
-		FareInfo: {
-			WorkingDay: [{ Period: '', Fare: '' }],
-			Holiday: [{ Period: '', Fare: '' }]
-		}
+		payex: ''
 	}
 
 	public constructor(dataRawData?: ParkinglotRawData) {
@@ -52,7 +36,7 @@ export class Parkinglot {
 				(this.data.tw97y = dataRawData.tw97y),
 				(this.data.tel = dataRawData.tel),
 				(this.data.serviceTime = dataRawData.serviceTime),
-				(this.data.FareInfo = dataRawData.FareInfo)
+				(this.data.payex = dataRawData.payex)
 		}
 	}
 
@@ -96,7 +80,7 @@ export class Parkinglot {
 		return this.data.serviceTime
 	}
 
-	public getFareInfo() {
-		return this.data.FareInfo
+	public getPayex() {
+		return this.data.payex
 	}
 }
