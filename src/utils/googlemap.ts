@@ -1,12 +1,8 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import { useParkinglotsStore } from '../stores/parkinglots'
-import { Parkinglot } from './Parkinglot'
 import { twd97_to_latlng } from './twd97_to_latlng'
 
-export const initMap = (): void => {
-	var map: google.maps.Map
-	const parkinglotStore = useParkinglotsStore()
-
+export const initMap = (map: google.maps.Map, markerClicked: Function): void => {
 	const fetchGoogleMap = (): void => {
 		const config = useRuntimeConfig().public
 		const loader = new Loader({
@@ -39,7 +35,7 @@ export const initMap = (): void => {
 					}
 				]
 			})
-			setMarker()
+			setMarker(markerClicked)
 		})
 	}
 
@@ -57,11 +53,10 @@ export const initMap = (): void => {
 		}
 	}
 
-	const getParkinglotData = (): void => {
+	const setMarker = (test: Function): void => {
+		const parkinglotStore = useParkinglotsStore()
 		parkinglotStore.fetchParkinglotInfo()
-	}
-
-	const setMarker = (): void => {
+		console.log('parkinglot info fetched')
 		const parkinglots = computed(() => parkinglotStore.getParkinglots)
 		for (let parkinglotId in parkinglots.value) {
 			const parkinglot = computed(() => parkinglotStore.getParkinglotByID(parkinglotId))
@@ -71,12 +66,14 @@ export const initMap = (): void => {
 					title: parkinglotId
 				})
 				marker.setMap(map)
-				marker.addListener('click', () => {})
+				marker.addListener('click', () => {
+					test(marker)
+				})
 			}
 		}
 	}
 
-	getParkinglotData()
 	fetchGoogleMap()
+	console.log('google map fetched')
 	getLocation()
 }
