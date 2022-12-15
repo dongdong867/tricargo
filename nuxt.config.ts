@@ -2,6 +2,9 @@ import { NuxtConfig } from 'nuxt/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	router: {
+		base: 'tricargo'
+	},
 	app: {
 		head: {
 			meta: [
@@ -15,10 +18,15 @@ export default defineNuxtConfig({
 		},
 		pageTransition: { name: 'page', mode: 'out-in' }
 	},
+	build: { transpile: ['@googlemaps/js-api-loader'] },
+	runtimeConfig: {
+		public: { GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY }
+	},
 	modules: [
 		'@nuxtjs/tailwindcss',
 		[
 			'@pinia/nuxt',
+			'@nuxtjs/axios',
 			{
 				autoImports: ['defineStore']
 			}
@@ -26,5 +34,10 @@ export default defineNuxtConfig({
 	],
 	typescript: {
 		typeCheck: true
-	}
+	},
+	axios: {},
+	nitro: {
+		preset: 'firebase'
+	},
+	srcDir: 'src/'
 } as NuxtConfig)

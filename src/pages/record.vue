@@ -1,4 +1,4 @@
 <template>
-	<div></div>
+	<div>record</div>
 </template>
 <script setup></script>
