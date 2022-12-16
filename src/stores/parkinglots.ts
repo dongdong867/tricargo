@@ -46,7 +46,7 @@ export const useParkinglotsStore = defineStore('parkingLot', {
 
 		getParkinglotByID(id: string) {
 			for (let parkinglotId in this.parkinglots) {
-				if (parkinglotId === id) return this.parkinglots[parkinglotId]
+				if (this.parkinglots[parkinglotId].getId() === id) return this.parkinglots[parkinglotId]
 			}
 		}
 	}

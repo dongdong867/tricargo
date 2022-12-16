@@ -8,10 +8,8 @@ async function getParkingLotInfo() {
 			.get(ParkingLotInfoScript)
 			.then((response) => {
 				let result = response.data
-
 				result = result.data.park
 
-				console.log(response.data)
 				resolve({ success: true, data: result })
 			})
 			.catch((error) => {
