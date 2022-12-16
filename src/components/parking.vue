@@ -6,6 +6,7 @@
 		<div>{{ parkinglot.tel }}</div>
 		<div>{{ parkinglot.serviceTime }}</div>
 		<div>{{ parkinglot.payex }}</div>
+		<div>{{ space }}</div>
 	</div>
 </template>
 <script setup>
@@ -35,6 +36,10 @@ const props = defineProps({
 			type: String,
 			require: true
 		}
+	},
+	space: {
+		type: Number,
+		require: true
 	}
 })
 </script>
