@@ -61,9 +61,13 @@ export const initMap = (map: google.maps.Map, markerClicked: Function): void => 
 		for (let parkinglotId in parkinglots.value) {
 			const parkinglot = computed(() => parkinglotStore.getParkinglotByID(parkinglotId))
 			if (parkinglot.value) {
+				const markerLocation = twd97_to_latlng(
+					+parkinglot.value.getTw97x(),
+					+parkinglot.value.getTw97y()
+				)
 				let marker = new google.maps.Marker({
-					position: twd97_to_latlng(+parkinglot.value.getTw97x(), +parkinglot.value.getTw97y()),
-					title: parkinglotId
+					position: new google.maps.LatLng(markerLocation.lat, markerLocation.lng),
+					title: parkinglot.value.getId()
 				})
 				marker.setMap(map)
 				marker.addListener('click', () => {
