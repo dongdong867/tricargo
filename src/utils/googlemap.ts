@@ -46,7 +46,7 @@ export const initMap = (map: google.maps.Map, markerClicked: Function): void => 
 					lat: position.coords.latitude,
 					lng: position.coords.longitude
 				}
-				map.setCenter(location)
+				map.setCenter(new google.maps.LatLng(location.lat, location.lng))
 			})
 		} else {
 			console.log('Not support GPS function.')
