@@ -5,6 +5,10 @@
 				<img :src="History" />
 				<div>History</div>
 			</nuxt-link>
+			<a href="/" class="h-[8vh] flex flex-col place-content-center place-items-center">
+				<img :src="Home" />
+				<div>home</div>
+			</a>
 			<nuxt-link to="account" class="h-[8vh] flex flex-col place-content-center place-items-center">
 				<img :src="User" />
 				<div>User</div>
@@ -15,4 +19,5 @@
 <script setup>
 import History from '~/assets/icons/navigationbar/history.svg?url'
 import User from '~/assets/icons/navigationbar/user.svg?url'
+import Home from '~/assets/icons/navigationbar/home.svg?url'
 </script>
