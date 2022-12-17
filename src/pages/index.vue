@@ -14,24 +14,25 @@
 </template>
 
 <script setup>
-import { initMap } from '~/utils/googlemap'
-import { useParkinglotsStore } from '../stores/parkinglots'
 import { Parkinglot } from '../utils/Parkinglot'
+import { useParkinglotsStore } from '~~/src/stores/parkinglots'
+import { initMap } from '~/utils/googlemap'
 import { getSpaceData } from '../utils/space'
 
-const park = ref(false)
 const calculate = ref(false)
-const spacedata = ref()
-const parkinglotsStore = useParkinglotsStore()
 let selectedParkinglot = new Parkinglot()
+const parkinglots = useParkinglotsStore()
+const spacedata = ref()
+const park = ref(false)
 
 onMounted(() => {
-	initMap(map, markerClicked)
+	parkinglots.fetchParkinglotInfo()
+	initMap(document.getElementById('map'), markerClicked)
 })
 
 async function markerClicked(marker) {
 	spacedata.value = await getSpaceData(marker.getTitle())
 	park.value = !park.value
-	selectedParkinglot = parkinglotsStore.getParkinglotByID(marker.getTitle()).data
+	selectedParkinglot = parkinglots.getParkinglotByID(marker.getTitle()).data
 }
 </script>

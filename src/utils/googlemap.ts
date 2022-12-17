@@ -2,82 +2,76 @@ import { Loader } from '@googlemaps/js-api-loader'
 import { useParkinglotsStore } from '../stores/parkinglots'
 import { twd97_to_latlng } from './twd97_to_latlng'
 
-export const initMap = (map: google.maps.Map, markerClicked: Function): void => {
-	const fetchGoogleMap = (): void => {
+export async function initMap(mapDiv: HTMLElement, markerClicked: Function): Promise<void> {
+	async function setLoader(): Promise<Loader> {
 		const config = useRuntimeConfig().public
 		const loader = new Loader({
 			apiKey: config.GOOGLE_MAPS_API_KEY
 		})
-		loader.load().then(() => {
-			map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
-				center: {
-					lat: 0,
-					lng: 0
-				},
-				zoom: 15,
-				disableDefaultUI: true,
-				styles: [
-					{
-						featureType: 'poi',
-						stylers: [
-							{
-								visibility: 'off'
-							}
-						]
-					},
-					{
-						featureType: 'poi.place_of_worship',
-						stylers: [
-							{
-								visibility: 'on'
-							}
-						]
-					}
-				]
-			})
-			setMarker(markerClicked)
+		return loader
+	}
+
+	async function getCurrentLocation(): Promise<google.maps.LatLng> {
+		return new Promise((resolve) => {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition((position) => {
+					resolve(new google.maps.LatLng(position.coords.latitude, position.coords.longitude))
+					console.log('get current location')
+				})
+			} else {
+				console.log('Not support GPS function.')
+			}
 		})
 	}
 
-	const getLocation = (): void => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				const location = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				}
-				map.setCenter(new google.maps.LatLng(location.lat, location.lng))
+	async function fetchMap(): Promise<google.maps.Map> {
+		const loader = await setLoader()
+		await loader.load()
+		const location = await getCurrentLocation()
+		return new Promise((resolve) => {
+			let map: google.maps.Map
+
+			loader.load().then(() => {
+				map = new google.maps.Map(mapDiv, {
+					center: location,
+					zoom: 15,
+					disableDefaultUI: true,
+					styles: [
+						{ featureType: 'poi', stylers: [{ visibility: 'off' }] },
+						{ featureType: 'poi.place_of_worship', stylers: [{ visibility: 'on' }] }
+					]
+				})
+				resolve(map)
+				console.log('fetched map')
 			})
-		} else {
-			console.log('Not support GPS function.')
-		}
+		})
 	}
 
-	const setMarker = (test: Function): void => {
+	async function setMarker(map: google.maps.Map): Promise<void> {
 		const parkinglotStore = useParkinglotsStore()
-		parkinglotStore.fetchParkinglotInfo()
-		console.log('parkinglot info fetched')
+		await parkinglotStore.fetchParkinglotInfo()
 		const parkinglots = computed(() => parkinglotStore.getParkinglots)
-		for (let parkinglotId in parkinglots.value) {
-			const parkinglot = computed(() => parkinglotStore.getParkinglotByID(parkinglotId))
+
+		for (let i = 0; i < parkinglots.value.length; i++) {
+			const parkinglot = computed(() =>
+				parkinglotStore.getParkinglotByID(parkinglots.value[i].getId())
+			)
 			if (parkinglot.value) {
 				const markerLocation = twd97_to_latlng(
 					+parkinglot.value.getTw97x(),
 					+parkinglot.value.getTw97y()
 				)
-				let marker = new google.maps.Marker({
+				const marker = new google.maps.Marker({
 					position: new google.maps.LatLng(markerLocation.lat, markerLocation.lng),
 					title: parkinglot.value.getId()
 				})
 				marker.setMap(map)
-				marker.addListener('click', () => {
-					test(marker)
-				})
+				marker.addListener('click', () => markerClicked(marker))
 			}
 		}
+		console.log('set marker')
 	}
 
-	fetchGoogleMap()
-	console.log('google map fetched')
-	getLocation()
+	const map = await fetchMap()
+	await setMarker(map)
 }

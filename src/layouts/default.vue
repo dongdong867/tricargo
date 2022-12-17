@@ -7,12 +7,4 @@
 	</div>
 </template>
 
-<script setup>
-import { useParkinglotsStore } from '~~/src/stores/parkinglots'
-
-const parkinglots = useParkinglotsStore()
-
-onBeforeMount(() => {
-	parkinglots.fetchParkinglotInfo()
-})
-</script>
+<script setup></script>
