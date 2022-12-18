@@ -1,7 +1,7 @@
 <template>
 	<Transition name="page" mode="out-in">
 		<div class="max-w-lg h-[100vh] mx-auto">
-			<div class="grow h-[92vh]">
+			<div class="h-[92vh] overflow-y-scroll bg-scroll">
 				<NuxtPage />
 			</div>
 			<Navigationbar class="max-w-lg h-[8vh]" />
