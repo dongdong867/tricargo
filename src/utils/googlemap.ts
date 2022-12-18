@@ -1,8 +1,13 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import { useParkinglotsStore } from '../stores/parkinglots'
 import { twd97_to_latlng } from './twd97_to_latlng'
+import { Ref } from 'vue'
 
-export async function initMap(mapDiv: HTMLElement, markerClicked: Function): Promise<void> {
+export async function initMap(
+	mapDiv: HTMLElement,
+	markerClicked: Function,
+	pageloaded: Ref<boolean>
+): Promise<void> {
 	async function setLoader(): Promise<Loader> {
 		const config = useRuntimeConfig().public
 		const loader = new Loader({
@@ -48,28 +53,30 @@ export async function initMap(mapDiv: HTMLElement, markerClicked: Function): Pro
 	}
 
 	async function setMarker(map: google.maps.Map): Promise<void> {
-		const parkinglotStore = useParkinglotsStore()
-		await parkinglotStore.fetchParkinglotInfo()
-		const parkinglots = computed(() => parkinglotStore.getParkinglots)
+		const parkinglotsStore = useParkinglotsStore()
+		const parkinglots = computed(() => parkinglotsStore.getParkinglots)
 
 		for (let i = 0; i < parkinglots.value.length; i++) {
 			const parkinglot = computed(() =>
-				parkinglotStore.getParkinglotByID(parkinglots.value[i].getId())
+				parkinglotsStore.getParkinglotByID(parkinglots.value[i].getId())
 			)
 			if (parkinglot.value) {
-				const markerLocation = twd97_to_latlng(
-					+parkinglot.value.getTw97x(),
-					+parkinglot.value.getTw97y()
-				)
-				const marker = new google.maps.Marker({
-					position: new google.maps.LatLng(markerLocation.lat, markerLocation.lng),
-					title: parkinglot.value.getId()
-				})
-				marker.setMap(map)
-				marker.addListener('click', () => markerClicked(marker))
+				if (parkinglot.value.getType() == '1') {
+					const markerLocation = twd97_to_latlng(
+						+parkinglot.value.getTw97x(),
+						+parkinglot.value.getTw97y()
+					)
+					const marker = new google.maps.Marker({
+						position: new google.maps.LatLng(markerLocation.lat, markerLocation.lng),
+						title: parkinglot.value.getId()
+					})
+					marker.setMap(map)
+					marker.addListener('click', () => markerClicked(marker))
+				}
 			}
 		}
 		console.log('set marker')
+		pageloaded.value = true
 	}
 
 	const map = await fetchMap()

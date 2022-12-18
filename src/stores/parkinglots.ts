@@ -1,19 +1,6 @@
 import { defineStore } from 'pinia'
 import { Parkinglot } from '../utils/Parkinglot'
 
-interface ParkinglotRawData {
-	id: string
-	area: string
-	name: string
-	type: '1' | '2' | string
-	address: string
-	tw97x: string
-	tw97y: string
-	tel: string
-	serviceTime: string
-	payex: string
-}
-
 export const useParkinglotsStore = defineStore('parkingLot', {
 	state: () => ({
 		parkinglots: [] as Parkinglot[]
@@ -26,7 +13,7 @@ export const useParkinglotsStore = defineStore('parkingLot', {
 			await $fetch('/api/parkinglotInfo').then((res: any) => {
 				let parkinglotArray: Array<Parkinglot> = []
 				for (const parkinglot in res.data) {
-					const data: ParkinglotRawData = {
+					const data = {
 						id: res.data[parkinglot].id,
 						area: res.data[parkinglot].area,
 						name: res.data[parkinglot].name,
