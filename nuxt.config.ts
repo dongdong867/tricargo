@@ -39,5 +39,6 @@ export default defineNuxtConfig({
 	nitro: {
 		preset: 'firebase'
 	},
-	srcDir: 'src/'
+	srcDir: 'src/',
+	css: ['~/assets/css/transition.css']
 } as NuxtConfig)

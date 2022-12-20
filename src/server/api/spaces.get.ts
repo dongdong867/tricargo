@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-async function getParkingLotInfo() {
+async function fetchSpacesData() {
 	return new Promise((resolve, reject) => {
-		const ParkingLotInfoScript =
-			'https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_alldesc.json'
+		const SpaceDataScript =
+			'https://tcgbusfs.blob.core.windows.net/blobtcmsv/TCMSV_allavailable.json'
 		axios
-			.get(ParkingLotInfoScript)
+			.get(SpaceDataScript)
 			.then((response) => {
 				let result = response.data
 				result = result.data.park
@@ -20,5 +20,5 @@ async function getParkingLotInfo() {
 }
 
 export default defineEventHandler(async () => {
-	return await getParkingLotInfo()
+	return await fetchSpacesData()
 })

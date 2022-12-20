@@ -1,11 +1,15 @@
 <template>
-	<div class="sticky bottom-0 shrink-0">
-		<div class="sticky top-0 left-0 right-0 flex place-content-around text-xs m-2">
-			<nuxt-link to="record" class="flex flex-col place-items-center">
+	<div class="sticky w-[100vw] h-[8vh] bottom-0 shrink-0">
+		<div class="h-[8vh] top-0 left-0 right-0 flex place-content-around place-items-center text-xs">
+			<nuxt-link to="record" class="h-[8vh] flex flex-col place-content-center place-items-center">
 				<img :src="History" />
 				<div>History</div>
 			</nuxt-link>
-			<nuxt-link to="account" class="flex flex-col place-items-center">
+			<a href="/" class="h-[8vh] flex flex-col place-content-center place-items-center">
+				<img :src="Home" />
+				<div>home</div>
+			</a>
+			<nuxt-link to="account" class="h-[8vh] flex flex-col place-content-center place-items-center">
 				<img :src="User" />
 				<div>User</div>
 			</nuxt-link>
@@ -15,4 +19,5 @@
 <script setup>
 import History from '~/assets/icons/navigationbar/history.svg?url'
 import User from '~/assets/icons/navigationbar/user.svg?url'
+import Home from '~/assets/icons/navigationbar/home.svg?url'
 </script>
