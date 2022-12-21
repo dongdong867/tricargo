@@ -16,7 +16,9 @@ export default {
 				'light-blue': '#E8EEF0',
 				'light-orange': '#FFF5E7',
 				'light-red': '#FFEBE7',
-				'light-grey': '#e3e3e3'
+				'light-grey': '#e3e3e3',
+                'history-base-gray': '#F1F1F1',
+                'history-dark-gray': '#7D7D7D',
 			}
 		}
 	}
