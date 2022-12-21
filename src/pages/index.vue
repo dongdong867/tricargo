@@ -36,8 +36,9 @@ const park = ref(false)
 const pageloaded = ref(false)
 let selectedParkinglot = new Parkinglot()
 
-onMounted(() => {
-	initMap(document.getElementById('map'), markerClicked, pageloaded)
+onMounted(async () => {
+	await parkinglots.fetchParkinglotInfo()
+	await initMap(document.getElementById('map'), markerClicked, pageloaded)
 })
 
 async function markerClicked(marker) {

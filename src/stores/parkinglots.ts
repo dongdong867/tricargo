@@ -28,6 +28,7 @@ export const useParkinglotsStore = defineStore('parkingLot', {
 					parkinglotArray.push(new Parkinglot(data))
 				}
 				this.parkinglots = parkinglotArray
+				console.log('parkinglot info fetched')
 			})
 		},
 
