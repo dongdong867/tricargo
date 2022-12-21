@@ -1,0 +1,12 @@
+@tailwind base;
+
+@layer base {
+	body,
+	html,
+	#__nuxt {
+		@apply w-full h-full m-0;
+	}
+}
+
+@tailwind components;
+@tailwind utilities;
