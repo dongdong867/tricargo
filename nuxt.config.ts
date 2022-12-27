@@ -26,7 +26,6 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 		[
 			'@pinia/nuxt',
-			'@nuxtjs/axios',
 			{
 				autoImports: ['defineStore']
 			}
@@ -35,7 +34,6 @@ export default defineNuxtConfig({
 	typescript: {
 		typeCheck: true
 	},
-	axios: {},
 	nitro: {
 		preset: 'firebase'
 	},
