@@ -3,7 +3,29 @@
 		<div class="flex justify-center text-[30px] pt-6 font-extrabold font-sans">My wallet</div>
 		<div class="flex justify-center mt-5 mb-5"><img :src="personalCard"></div>
 
-		<div class=" flex-col space-y-3 justify-center grid pt-12 bg-white px-100 rounded-t-[100px] ">	
+		
+		
+
+		<div class="bg-white rounded-t-[100px]">
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+
+
+		</div>
+
+
+		<div class=" flex-col space-y-3 justify-center grid  bg-white  ">	
 			<img :src="Card" />
 			<img :src="applePay" />
 			<img :src="paypal" />
