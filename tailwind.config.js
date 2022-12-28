@@ -19,6 +19,9 @@ export default {
 				'light-grey': '#e3e3e3',
                 'history-base-gray': '#F1F1F1',
                 'history-dark-gray': '#7D7D7D',
+			},
+			borderRadius: {
+				'walletRadius':'50px',
 			}
 		}
 	}
