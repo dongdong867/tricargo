@@ -1,7 +1,7 @@
 <template>
 	<div class=" bg-light-grey mx-auto h-2/3 ">
 		<div class="flex justify-center text-[30px] pt-6 font-extrabold font-sans">My wallet</div>
-		<div class="flex justify-center mt-5 mb-5"><img :src="personalCard"></div>
+		<div class="flex justify-center mt-5 mb-14"><img :src="personalCard"></div>
 
 		
 		
@@ -20,6 +20,8 @@
 			<div class="text-center h-1"></div>
 			<div class="text-center h-1"></div>
 			<div class="text-center h-1"></div>
+			<div class="text-center h-1"></div>
+			
 
 
 		</div>
