@@ -14,17 +14,21 @@
 						<img :src="spareBalance" />
 					</div>
 				</div>
-				<div class="flex-col space-y-3 justify-center grid gap-2 content-end">
+				<div class="flex-col space-y-3 justify-center grid">
 					<div class="flex justify-center">
 						<nuxt-link to="/account/wallet">
 							<img :src="wallet" />
 						</nuxt-link>
 					</div>
+					<div class="flex justify-center">
+							<img :src="setting" />
+					</div>
+					<div class="flex justify-center">
+							<img :src="help" />
+						</div>
 				</div>
-
-				<img :src="setting" />
-
-				<img :src="help" />
+				
+						
 			</div>
 		</div>
 	</div>
