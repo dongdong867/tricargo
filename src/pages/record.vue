@@ -5,10 +5,12 @@
 
 			<div>
 				<div class="text-xl font-bold ml-2 pt-2">{{ history.parkinglot }}</div>
-				<div class="text-sm ml-2 pb-2 text-history-dark-gray">{{ history.parkingTime }}</div>
+				<div class="text-sm ml-2 pb-2 text-history-dark-gray">{{ history.parkingStartTime }}</div>
+				<div class="text-sm ml-2 pb-2 text-history-dark-gray">{{ history.parkingEndingTime }}</div>
+
 			</div>
 			
-			<div class=" text-base-blue  mr-2 text-[40px] font-bold">{{ history.totalPrice }}</div>
+			<div class=" text-base-blue mt-2 mr-5 text-[40px] font-bold">{{ history.totalPrice }}</div>
 		</div>
 	</div>
 	
@@ -17,21 +19,25 @@
 <script setup>
 const historys = [
 	{
-		parkinglot: 'OO Road No.XX',
-		parkingTime: 'XXXX/XX/XX 00:00 - XXXX/XX/XX XX:XX',
-		totalPrice: '$XXX'
-	},
-	{
 		parkinglot: '木柵路3段220號',
 		parkingDate: '2022/12/17',
-		parkingTime: '2022/12/17 00:00 - 2022/12/17 18:25',
-		totalPrice: '$100'
+		parkingStartTime: '2022/12/17 00:00 - ',
+		parkingEndingTime:'2022/12/17 18:25',
+		totalPrice: '$16'
 	},
 	{
-		parkinglot: '保儀路平面停車場(保儀路157號對面)',
+		parkinglot: '保儀路平面停車場',
 		parkingDate: '2022/12/18',
-		parkingTime: '2022/12/17 09:00 - 2023/01/02 14:25',
-		totalPrice: '$1032'
+		parkingStartTime: '2022/12/17 09:00 - ',
+		parkingEndingTime: '2023/01/02 14:25',
+		totalPrice: '$323'
+	},
+	{
+		parkinglot: '第二殯儀館停車場',
+		parkingDate: '2022/12/18',
+		parkingStartTime: '2022/12/17 14:00 - ',
+		parkingEndingTime: '2023/01/02 14:25',
+		totalPrice: '$23'
 	}
 ]
 </script>
