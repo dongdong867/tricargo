@@ -11,17 +11,7 @@
 			<div class=" text-base-blue  mr-2 text-[40px] font-bold">{{ history.totalPrice }}</div>
 		</div>
 	</div>
-	<div>
-		<div class="flex justify-between bg-history-base-gray my-2 mx-3 rounded " v-for="history in historys">
-			<div>
-				<div class="text-xl font-bold ml-2 pt-2">{{ history.parkinglot }}</div>
-				<div class="text-sm ml-2 text-history-dark-gray">{{ history.parkingDate }}</div>
-				<div class="text-sm ml-2 pb-2 text-history-dark-gray">{{ history.parkingTime }}</div>
-			</div>
-			
-			<div class=" text-base-blue  mr-2 text-[40px] font-bold">{{ history.totalPrice }}</div>
-		</div>
-	</div>
+	
 	
 </template>
 <script setup>
