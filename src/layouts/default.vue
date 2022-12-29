@@ -4,7 +4,7 @@
 			<div class="h-[92vh] overflow-y-scroll bg-scroll">
 				<NuxtPage />
 			</div>
-			<Navigationbar class="max-w-lg h-[8vh]" />
+			<Navigationbar class="max-w-lg h-[10vh]" />
 		</div>
 	</Transition>
 </template>
