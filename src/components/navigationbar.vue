@@ -16,7 +16,9 @@
 			>
 				<img
 					:src="HomeHovered"
-					v-if="route.name != 'record' && route.name != 'account' && route.name != 'account-wallet'"
+					v-if="
+						route.name !== 'record' && route.name !== 'account' && route.name !== 'account-wallet'
+					"
 				/>
 				<img :src="Home" v-else />
 			</a>
