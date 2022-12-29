@@ -14,7 +14,7 @@
 				href="/"
 				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
-				<img :src="HomeHovered" v-if="route.name != 'record' || route.name != 'account'" />
+				<img :src="HomeHovered" v-if="route.name != 'record' && route.name != 'account'" />
 				<img :src="Home" v-else />
 			</a>
 			<nuxt-link
