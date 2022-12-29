@@ -14,14 +14,20 @@
 				href="/"
 				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
-				<img :src="HomeHovered" v-if="route.name != 'record' && route.name != 'account'" />
+				<img
+					:src="HomeHovered"
+					v-if="route.name != 'record' && route.name != 'account' && route.name != 'account-wallet'"
+				/>
 				<img :src="Home" v-else />
 			</a>
 			<nuxt-link
 				to="/account"
 				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
-				<img :src="UserHovered" v-if="route.name === 'account'" />
+				<img
+					:src="UserHovered"
+					v-if="route.name === 'account' || route.name === 'account-wallet'"
+				/>
 				<img :src="User" v-else />
 			</nuxt-link>
 		</div>
