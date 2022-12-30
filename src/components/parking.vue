@@ -1,26 +1,42 @@
 <template>
-	<div class="w-[100vw] h-[45vh] bg-white">
-		<div>{{ parkinglot.area }}</div>
-		<div>{{ parkinglot.name }}</div>
-		<div>{{ parkinglot.address }}</div>
-		<div>{{ parkinglot.tel }}</div>
-		<div>{{ parkinglot.serviceTime }}</div>
-		<div>{{ parkinglot.payex }}</div>
-		<div>{{ space }}</div>
+	<div
+		class="w-[100vw] h-[40vh] bg-base-grey text-white font-bold px-[5vh] pt-[2vh] bg-opacity-80 rounded-t-[30px] flex flex-col place-content-start"
+	>
+		<img
+			:src="dragbar"
+			class="h-[0.8vh] relative z-20 cursor-pointer"
+			@click="$emit('dragbarClicked')"
+		/>
 
-		<div>
-			{{ formatTime() }}
-		</div>
-		<button v-if="timerRunning" @click="timerStop" class="bg-black text-white w-max h-max">
-			<div>Stop</div>
+		<div class="text-3xl mt-[3vh]">{{ parkinglot.name }}</div>
+		<div>收費方式: 120元/小時</div>
+		<div class="mt-[1vh]">{{ parkinglot.area }}</div>
+
+		<div>{{ space }} 個車位剩餘</div>
+
+		<button
+			v-if="timerRunning == false"
+			@click="$emit('startButtonClicked')"
+			class="bg-light-blue text-base-blue w-[80vw] h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
+		>
+			<img :src="reserve" />
+			<div class="text-4xl">Start</div>
 		</button>
-		<button v-else @click="timerStart" class="bg-black text-white w-max h-max">
-			<div>Start</div>
+
+		<button
+			v-if="timerRunning == true"
+			@click="$emit('parkButtonClicked')"
+			class="bg-light-orange text-base-orange w-[80vw] h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
+		>
+			<img :src="park" />
+			<div class="text-4xl">Park</div>
 		</button>
 	</div>
 </template>
 <script setup>
-import moment from 'moment'
+import reserve from '~/assets/icons/parking/reserve.svg?url'
+import park from '~/assets/icons/parking/park.svg?url'
+import dragbar from '~/assets/icons/parking/dragbar.svg?url'
 
 const props = defineProps({
 	parkinglot: {
@@ -52,43 +68,10 @@ const props = defineProps({
 	space: {
 		type: Number,
 		require: true
+	},
+	timerRunning: {
+		type: Boolean,
+		require: true
 	}
 })
-
-const timerRunning = ref(false)
-let timerCount = ref(600)
-
-const timerStart = () => {
-	timerCount.value = 600
-	timerRunning.value = true
-	countdown()
-}
-
-const countdown = () => {
-	if (timerCount.value > 0 && timerRunning.value == true) {
-		setTimeout(() => {
-			timerCount.value -= 1
-			countdown()
-		}, 1000)
-	}
-
-	if (timerCount.value == 0) {
-		timerCount.value = 600
-	}
-}
-
-const timerStop = () => {
-	timerRunning.value = false
-	clearTimeout(timerCount)
-}
-
-const formatTime = () => {
-	let minutes = moment.duration(timerCount.value, 's').minutes().toString()
-	minutes = minutes.length == 1 ? '0' + minutes : minutes
-
-	let seconds = moment.duration(timerCount.value, 's').seconds().toString()
-	seconds = seconds.length == 1 ? '0' + seconds : seconds
-
-	return minutes + ':' + seconds
-}
 </script>

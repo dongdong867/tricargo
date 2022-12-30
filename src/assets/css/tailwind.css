@@ -10,3 +10,21 @@
 
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'Outfit';
+	src: url('~/assets/fonts/Outfit/Outfit-SemiBold.ttf');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Outfit';
+	src: url('~/assets/fonts/Outfit/Outfit-Bold.ttf');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Outfit';
+	src: url('~/assets/fonts/Outfit/Outfit-ExtraBold.ttf');
+	font-weight: 800;
+}
