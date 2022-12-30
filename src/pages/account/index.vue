@@ -15,19 +15,36 @@
 					<div class="flex justify-center">
 						<img :src="spareBalance" />
 					</div>
+<<<<<<< HEAD
 				
 				
 				<div class="flex-col space-y-4 justify-center relative bottom-2">
+=======
+				</div>
+				<div class="flex-col space-y-3 justify-center grid">
+>>>>>>> origin/qaq
 					<div class="flex justify-center">
 						<nuxt-link to="/account/wallet">
 							<img :src="wallet" />
 						</nuxt-link>
 					</div>
+<<<<<<< HEAD
 				
 					<div class="flex justify-center "> <img :src="setting" /> </div>
 						
 					<div class="flex justify-center"> <img :src="help" /> </div>
 				</div>
+=======
+					<div class="flex justify-center">
+							<img :src="setting" />
+					</div>
+					<div class="flex justify-center">
+							<img :src="help" />
+						</div>
+				</div>
+				
+						
+>>>>>>> origin/qaq
 			</div>
 			</div>
 			
