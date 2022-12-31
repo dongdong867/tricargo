@@ -1,45 +1,36 @@
 <template>
-	<div class="container min-w-full">
-		<div class="relative top-20 ">
-			<div class="flex justify-center">
-				<img :src="personalImage" />
+	<div class="text-base-grey">
+		<div class="text-2xl mt-[3vh] ml-[5vw]">Account</div>
+		<div class="flex flex-col place-content-center place-items-center mt-[4vh]">
+			<img :src="personalImage" class="w-[20vw]" />
+			<div class="text-base-blue font-bold text-lg grid place-items-center">
+				<div>藍色妖姬你不愛</div>
+				<div>非在渣男身上找存在</div>
 			</div>
 		</div>
-				<div class="flex-col space-y-40 ">
-				<div class="relative top-24 animate-fade-in-down mb-1 text-center text-lg text-sky-600 font-semibold">
-					藍色妖姬你不愛 非在渣男身上找存在
+		<div class="flex flex-col mt-[2vh]">
+			<img :src="spareBalance" class="w-[94vw] m-auto" />
+
+			<div
+				class="flex flex-col place-items-center space-y-[2vh] mt-[5vh] justify-center text-white text-3xl"
+			>
+				<nuxt-link to="/account/wallet">
+					<div class="button-style bg-base-blue">
+						<img :src="wallet" class="h-[8vh]" />
+						<div>Wallet</div>
+					</div>
+				</nuxt-link>
+
+				<div class="button-style bg-base-orange">
+					<img :src="setting" class="h-[8vh]" />
+					<div>Settings</div>
 				</div>
-			
-
-				<div class="flex-col space-y-16 ">
-					<div class="flex justify-center">
-						<img :src="spareBalance" />
-					</div>
-
-						
-				<div class="flex-col space-y-4 justify-center relative bottom-3">
-
-
-					<div class="flex justify-center">
-						<nuxt-link to="/account/wallet">
-							<img :src="wallet" />
-						</nuxt-link>
-					</div>
-
-					<div class="flex justify-center">
-							<img :src="setting" />
-					</div>
-					<div class="flex justify-center">
-						<img :src="help" />
-						</div>
+				<div class="button-style bg-base-red">
+					<img :src="help" class="h-[8vh]" />
+					<div>Help</div>
 				</div>
-				
-						
-
 			</div>
-			</div>
-			
-			
+		</div>
 	</div>
 </template>
 <script setup>
@@ -49,3 +40,8 @@ import wallet from '~/assets/icons/account/wallet.svg?url'
 import setting from '~/assets/icons/account/setting.svg?url'
 import help from '~/assets/icons/account/help.svg?url'
 </script>
+<style scoped>
+.button-style {
+	@apply w-[94vw] h-[12vh] flex place-content-between place-items-center px-[10vw] rounded-[20px];
+}
+</style>
