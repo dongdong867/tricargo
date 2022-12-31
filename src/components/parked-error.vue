@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="bg-base-grey bg-opacity-80 w-[80vw] h-[30vh] rounded-[30px] text-white font-bold flex flex-col place-content-center place-items-center"
+		class="max-w-lg bg-base-grey bg-opacity-80 h-[30vh] rounded-[30px] text-white font-bold flex flex-col place-content-center place-items-center"
 	>
 		<div class="text-4xl leading-normal">您已經停車成功</div>
 		<div class="text">若要停放下一個車位，請先將車輛移出</div>

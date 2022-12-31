@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="w-[100vw] h-[40vh] bg-base-grey text-white font-bold px-[5vh] pt-[2vh] bg-opacity-80 rounded-t-[30px] flex flex-col place-content-start"
+		class="max-w-lg h-[40vh] bg-base-grey text-white font-bold px-[5vh] pt-[2vh] bg-opacity-80 rounded-t-[30px] flex flex-col place-content-start"
 	>
 		<img
 			:src="dragbar"
@@ -17,7 +17,7 @@
 		<button
 			v-if="timerRunning == false"
 			@click="$emit('startButtonClicked')"
-			class="bg-light-blue text-base-blue w-[80vw] h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
+			class="max-w-[100%] bg-light-blue text-base-blue w-[80vw] h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
 		>
 			<img :src="reserve" />
 			<div class="text-4xl">Start</div>
@@ -26,7 +26,7 @@
 		<button
 			v-if="timerRunning == true"
 			@click="$emit('parkButtonClicked')"
-			class="bg-light-orange text-base-orange w-[80vw] h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
+			class="max-w-[100%] bg-light-orange text-base-orange h-[10vh] opacity-100 flex place-content-around place-items-center space-x-[15vw] mt-[3vh] rounded-[15px]"
 		>
 			<img :src="park" />
 			<div class="text-4xl">Park</div>

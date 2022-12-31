@@ -8,7 +8,7 @@
 				class="absolute z-20 left-1/2 -translate-x-1/2 transition-all duration-500"
 				:class="timerRunning ? ['-top-[0vh]'] : ['-top-[12vh]']"
 			>
-				<Timer :time="time" @cancleButtonClicked="timerStop" />
+				<Timer class="max-w-lg" :time="time" @cancleButtonClicked="timerStop" />
 			</div>
 			<div id="map" class="max-w-lg h-[90vh]"></div>
 			<div
@@ -16,6 +16,7 @@
 				:class="park ? ['-top-[40vh]'] : ['top-0']"
 			>
 				<Parking
+					class=""
 					:parkinglot="selectedParkinglot"
 					:space="spacedata"
 					:timerRunning="timerRunning"
