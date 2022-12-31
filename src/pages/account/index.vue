@@ -1,9 +1,9 @@
 <template>
-	<div class="text-base-grey">
-		<div class="text-2xl mt-[3vh] ml-[5vw]">Account</div>
+	<div>
+		<div class="font-bold mt-[2vh] px-[3vw] text-3xl">Account</div>
 		<div class="flex flex-col place-content-center place-items-center mt-[4vh]">
 			<img :src="personalImage" class="w-[20vw]" />
-			<div class="text-base-blue font-bold text-lg grid place-items-center">
+			<div class="font-bold text-lg grid place-items-center leading-none mt-[1vh]">
 				<div>藍色妖姬你不愛</div>
 				<div>非在渣男身上找存在</div>
 			</div>
