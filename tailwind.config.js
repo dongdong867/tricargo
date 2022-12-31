@@ -17,11 +17,11 @@ export default {
 				'light-orange': '#FFF5E7',
 				'light-red': '#FFEBE7',
 				'light-grey': '#e3e3e3',
-                'history-base-gray': '#F1F1F1',
-                'history-dark-gray': '#7D7D7D',
+				'history-base-gray': '#F1F1F1',
+				'history-dark-gray': '#7D7D7D'
 			},
 			borderRadius: {
-				'walletRadius':'50px',
+				walletRadius: '50px'
 			}
 		}
 	}
