@@ -35,7 +35,7 @@
 			<Payed :parkinglot="selectedParkinglot" @confirmButtonClicked="paymentFinished" />
 		</div>
 		<div
-			class="absolute w-screen max-w-lg h-screen top-0 bg-[url('~/assets/icons/loading-background.svg?url')] bg-[length:100vw_auto]"
+			class="absolute w-screen max-w-lg h-screen top-0 bg-[url('~/assets/icons/loading-background.svg?url')] bg-cover"
 			:class="pageloaded ? ['opacity-0 -z-50'] : ['opacity-100']"
 		>
 			<div
