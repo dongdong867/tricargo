@@ -7,7 +7,7 @@
 			class="max-w-[50%] w-[40%] h-[8vh] mr-[3vw] text-3xl flex m-auto px-[8vw] place-content-center place-items-center bg-light-orange text-base-orange rounded-full cursor-pointer"
 			@click="$emit('cancleButtonClicked')"
 		>
-			Cancle
+			Cancel
 		</div>
 	</div>
 </template>
