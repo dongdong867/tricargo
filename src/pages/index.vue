@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="w-full h-[92vh] overflow-hidden"
+			class="w-full h-[90vh] overflow-hidden"
 			:class="pageloaded ? ['opacity-100'] : ['opacity-0']"
 		>
 			<div
@@ -27,11 +27,14 @@
 		</div>
 		<div
 			v-if="parkedError == true"
-			class="w-[80vw] h-[30vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] z-50"
+			class="w-[90%] max-w-lg absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
 		>
 			<ParkedError @closeParkedError="parkedError = !parkedError" />
 		</div>
-		<div v-if="payed == true" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%]">
+		<div
+			v-if="payed == true"
+			class="w-[90%] max-w-lg absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+		>
 			<Payed :parkinglot="selectedParkinglot" @confirmButtonClicked="paymentFinished" />
 		</div>
 		<div
@@ -114,6 +117,7 @@ const removeParked = async () => {
 	await new Promise((resolve) => setTimeout(resolve, 60000))
 	parked.value = false
 	payed.value = true
+	parkedError.value = false
 }
 
 const formatTime = () => {

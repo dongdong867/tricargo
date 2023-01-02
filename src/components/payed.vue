@@ -1,12 +1,12 @@
 <template>
 	<div
-		class="w-[90vw] h-[60vh] bg-base-grey bg-opacity-80 rounded-[30px] flex flex-col place-content-center place-items-center text-white font-bold text-xl space-y-[3vh]"
+		class="h-[70%] max-w-md m-auto bg-base-grey bg-opacity-80 rounded-[30px] py-[4vh] flex flex-col place-content-center place-items-center text-white font-bold text-xl space-y-[3vh]"
 	>
 		<div class="text-5xl">扣款成功</div>
 		<div class="w-[85%] h-[15%] bg-white rounded-[20px] flex place-content-end place-items-center">
 			<div class="text-base-red text-5xl p-[4vw]">-$20</div>
 		</div>
-		<div class="w-[70vw] space-y-[2vh]">
+		<div class="w-[70%] space-y-[2vh]">
 			<div>明細</div>
 			<div>
 				<div>{{ parkinglot.area }}</div>
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<div
-			class="px-[20vw] py-[2vh] rounded-full bg-light-red text-base-red text-5xl cursor-pointer"
+			class="w-[80%] px-[20%] py-[2vh] rounded-full bg-light-red text-base-red text-5xl text-center cursor-pointer"
 			@click="$emit('confirmButtonClicked')"
 		>
 			確認
