@@ -5,32 +5,34 @@
 		<div class="h-[8vh] top-0 left-0 right-0 flex place-content-around place-items-center text-xs">
 			<nuxt-link
 				to="/record"
-				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
+				class="h-[10vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
-				<img :src="HistoryHovered" v-if="route.name === 'record'" />
-				<img :src="History" v-else />
+				<img class="h-[8vh]" :src="HistoryHovered" v-if="route.name === 'record'" />
+				<img class="h-[5vh]" :src="History" v-else />
 			</nuxt-link>
 			<a
 				href="/"
-				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
+				class="h-[10vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
 				<img
+					class="h-[8vh]"
 					:src="HomeHovered"
 					v-if="
 						route.name !== 'record' && route.name !== 'account' && route.name !== 'account-wallet'
 					"
 				/>
-				<img :src="Home" v-else />
+				<img :src="Home" class="h-[5vh]" v-else />
 			</a>
 			<nuxt-link
 				to="/account"
-				class="h-[8vh] aspect-square flex flex-col place-content-center place-items-center"
+				class="h-[10vh] aspect-square flex flex-col place-content-center place-items-center"
 			>
 				<img
+					class="h-[8vh]"
 					:src="UserHovered"
 					v-if="route.name === 'account' || route.name === 'account-wallet'"
 				/>
-				<img :src="User" v-else />
+				<img class="h-[5vh]" :src="User" v-else />
 			</nuxt-link>
 		</div>
 	</div>
