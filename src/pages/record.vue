@@ -1,6 +1,6 @@
 <template>
-	<div class="p-[3vw] font-bold">
-		<div class="font-bold mt-[2vh] text-3xl border-b-2 border-b-black">History</div>
+	<div class="p-[4vw] font-bold">
+		<div class="font-bold text-3xl border-b-2 border-b-black">History</div>
 		<div>
 			<div
 				class="flex place-content-between place-items-center px-[3vw] bg-history-base-gray mt-[1vh] rounded-[10px]"
