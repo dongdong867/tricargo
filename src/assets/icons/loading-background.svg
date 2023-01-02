@@ -1,0 +1,38 @@
+<svg width="393" height="852" viewBox="0 0 393 852" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_666_2290)">
+    <rect width="393" height="852" fill="white" />
+    <g filter="url(#filter0_f_666_2290)">
+      <ellipse cx="-9.46547" cy="106.17" rx="248.898" ry="351.739" transform="rotate(40.4112 -9.46547 106.17)"
+        fill="#007FAD" fill-opacity="0.7" />
+    </g>
+    <g filter="url(#filter1_f_666_2290)">
+      <circle cx="376.5" cy="295.5" r="89.5" fill="#F48F00" fill-opacity="0.7" />
+    </g>
+    <g filter="url(#filter2_f_666_2290)">
+      <ellipse cx="251.5" cy="732.5" rx="334.5" ry="230.5" fill="#C94A30" fill-opacity="0.7" />
+    </g>
+  </g>
+  <defs>
+    <filter id="filter0_f_666_2290" x="-335.968" y="-236.544" width="653.004" height="685.429"
+      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur_666_2290" />
+    </filter>
+    <filter id="filter1_f_666_2290" x="257" y="176" width="239" height="239" filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur_666_2290" />
+    </filter>
+    <filter id="filter2_f_666_2290" x="-113" y="472" width="729" height="521" filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur stdDeviation="15" result="effect1_foregroundBlur_666_2290" />
+    </filter>
+    <clipPath id="clip0_666_2290">
+      <rect width="393" height="852" fill="white" />
+    </clipPath>
+  </defs>
+</svg>
